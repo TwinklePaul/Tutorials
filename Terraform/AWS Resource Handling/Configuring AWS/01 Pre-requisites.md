@@ -101,7 +101,20 @@ This is how the command functions:
 
 * The /aws working directory is user controlled. The image will not write to this directory, unless instructed by the user in running an AWS CLI command.
 
-* You can also choose to use the latest AWS CLI (default) version or a specific version as shown below:
+### Some Examples:
+#### 1. Shorten the Docker command
+* For basic access to aws commands, run the following:
+```
+    alias aws='docker run --rm -it amazon/aws-cli'
+```
+
+* For access to the host file system and configuration settings when using aws commands, run the following.:
+```
+    alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+```
+
+#### 2. Choose AWS CLI version
+* You can choose to use the latest AWS CLI (default) version or a specific version as shown below:
 ```
     docker run --rm -it amazon/aws-cli:latest command
     or
@@ -125,16 +138,12 @@ To share the host file system, credentials, and configuration to the container:
 
 ### Some Examples:
 
-#### 1. Shorten the Docker command
-* For basic access to aws commands, run the following:
+#### 1. Using your AWS_PROFILE environment variable
 ```
-    alias aws='docker run --rm -it amazon/aws-cli'
+    docker run --rm -it -v ~/.aws:/root/.aws -e AWS_PROFILE amazon/aws-cli s3 ls
 ```
-
-* For access to the host file system and configuration settings when using aws commands, run the following.:
-```
-    alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
-```
+* You can call specific system's environment variables using the -e flag. Call each environment variable you'd like to use.
+* We're providing host credentials, configuration, and the AWS_PROFILE environment variable when running the s3 ls command to list your buckets in Amazon Simple Storage Service (Amazon S3).
 
 #### 2. Providing credentials and configuration
 
@@ -143,13 +152,7 @@ To share the host file system, credentials, and configuration to the container:
 ```
 * We're providing host credentials and configuration when running the s3 ls command to list your buckets in Amazon Simple Storage Service (Amazon S3). 
 
-#### 3. Using your AWS_PROFILE environment variable
-
-```
-    docker run --rm -it -v ~/.aws:/root/.aws -e AWS_PROFILE amazon/aws-cli s3 ls
-```
-* You can call specific system's environment variables using the -e flag. Call each environment variable you'd like to use.
-* We're providing host credentials, configuration, and the AWS_PROFILE environment variable when running the s3 ls command to list your buckets in Amazon Simple Storage Service (Amazon S3).
+#### 3. 
 
 #### 4. Downloading an Amazon S3 file to your host system
 
