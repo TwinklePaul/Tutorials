@@ -43,15 +43,17 @@ Here are some info on the flags being use:
 * `--hostname , -h` - Container host name.
 * `--init` - Run an init inside the container that forwards signals and reaps processes.
 * `--interactive, -i` - Keep STDIN open even if not attached.
-* `--ip` - IPv4 address (e.g., 172.30.100.104)
-* `--ip6` - IPv6 address (e.g., 2001:db8::33)
-* `--pid` - PID namespace to use
-* `--pids-limit` - Tune container pids limit (set -1 for unlimited)
-* `--privileged` - Give extended privileges to this container
-* `--publish , -p` - Publish a container's port(s) to the host
-* `--publish-all , -p` - Publish all exposed ports to random ports
-* `--pull missing` - Pull image before running `("always"|"missing"|"never")`
-* `--read-only` - Mount the container's root filesystem as read only
-* `--restart no` - Restart policy to apply when a container exitSysctl optionsRestart policy to apply when a container exits
+* `--ip` - IPv4 address (e.g., 172.30.100.104).
+* `--ip6` - IPv6 address (e.g., 2001:db8::33).
+* `--pid` - PID namespace to use.
+* `--pids-limit` - Tune container pids limit (set -1 for unlimited).
+* `--privileged` - Give extended privileges to this container.
+* `--publish , -p` - Publish a container's port(s) to the host.
+* `--publish-all , -p` - Publish all exposed ports to random ports.
+* `--pull missing` - Pull image before running `("always"|"missing"|"never")`.
+* `--read-only` - Mount the container's root filesystem as read only.
+* `--restart no` - Restart policy to apply when a container exitSysctl.optionsRestart policy to apply when a container exits.
+* `--volume, -v` - Bind mount a volume.
 
-[Click to see more such flags](https://docs.docker.com/engine/reference/commandline/run/ "Click to see more such flags")
+
+[Click to see more such flags.](https://docs.docker.com/engine/reference/commandline/run/ "Click to see more such flags.")
